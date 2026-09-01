@@ -58,12 +58,6 @@ public class RewardServiceImpl implements RewardService {
         return buildResponse(customer, startDate, endDate);
     }
 
-    /**
-     * Calculates points for a single purchase.
-     *
-     * @param amount purchase amount
-     * @return reward points
-     */
     public int calculatePoints(BigDecimal amount) {
         if (amount == null || amount.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException(
@@ -83,14 +77,6 @@ public class RewardServiceImpl implements RewardService {
                 .intValue();
     }
 
-    /**
-     * Creates a customer reward response from database transactions.
-     *
-     * @param customer customer
-     * @param startDate range start
-     * @param endDate range end
-     * @return reward response
-     */
     private CustomerRewardResponse buildResponse(
             Customer customer, LocalDate startDate, LocalDate endDate) {
 
